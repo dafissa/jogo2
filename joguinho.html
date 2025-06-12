@@ -14,11 +14,11 @@
             background-color: #222;
         }
 
-        #game-container {
+        #game-container { /*container opcional para posicionamnto*/
             position: relative;
         }
 
-        #canvas {
+        #canvas { /*canvas mantem sua resoluão nativa via atributos altura e largura*/
             border: 2px solid #fff;
             background-color: #333;
             display: block;
@@ -26,6 +26,8 @@
     </style>
 </head>
 <body>
-    
+    <div id="game-container">
+        <canvas id="canvas" width="560" height="560"></canvas>
+    </div>
 </body>
 </html>

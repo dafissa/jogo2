@@ -1,5 +1,5 @@
-class game
-    constructor() {
+class Game {
+    constructor () {
     this.canvas = document.getElementById("canvas");
     this.ctx = this.canvas.getContext('2d');
 
@@ -34,5 +34,19 @@ class game
     this.totalBricks = 0;
     this.highScore = parseInt(localStorage.getItem("arkanoidHighScore")) || 0;
 
-    
+    this.gameOver = false;
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Right" || e.key === "ArrowRight") this.rightPressed = true;
+        if (e.key === "Left" || e.key === "ArrowLeft") this.leftPressed = true;
+    });
+    document.addEventListener("keyup", (e) => {
+        if (e.key === "Right" || e.key === "ArrowRight") this.rightPressed = false;
+        if (e.key === "Left" || e.key === "ArrowLeft") this.leftPressed = false;
+    });
+
+    this.createBricks();
     }
+
+
+}

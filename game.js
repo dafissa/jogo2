@@ -19,6 +19,7 @@ class Game {
     this.brickOffsetLeft = 30;
     this.brick = [];
 
+    //o nivel que vc começa (atual)
     this.level = 1;
 
     // config. da bola
@@ -37,12 +38,14 @@ class Game {
     this.leftPressed = false;
     
     // pontuação e recorde
-    this.score = 0;
-    this.totalBricks = 0;
+    this.score = 0; // pontos do jogador
+    this.totalBricks = 0; // total de blocos da fase atual
     this.highScore = parseInt(localStorage.getItem("arkanoidHighScore")) || 0;
 
+    //estado do jogo
     this.gameOver = false;
 
+    //eventos do teclado: seta direita/esquerda para mover a barra
     document.addEventListener("keydown", (e) => {
         if (e.key === "Right" || e.key === "ArrowRight") this.rightPressed = true;
         if (e.key === "Left" || e.key === "ArrowLeft") this.leftPressed = true;

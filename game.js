@@ -21,6 +21,7 @@ class Game {
 
     this.level = 1;
 
+    // config. da bola
     this.baseSpeed = 1.5;
     this.ballRadius = 10;
     this.ballDX = this.baseSpeed;
@@ -28,12 +29,14 @@ class Game {
     this.ballX = this.width / 2;
     this.ballY = this.height - 30;
 
+    // config. da barra
     this.paddleHeight = 10;
     this.paddleWidth = 100;
     this.paddlex = (this.Width - this.paddleWidth) / 2;
     this.rightPressed = false;
     this.leftPressed = false;
     
+    // pontuação e recorde
     this.score = 0;
     this.totalBricks = 0;
     this.highScore = parseInt(localStorage.getItem("arkanoidHighScore")) || 0;

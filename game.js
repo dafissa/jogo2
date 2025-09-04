@@ -55,8 +55,26 @@ class Game {
         if (e.key === "Left" || e.key === "ArrowLeft") this.leftPressed = false;
     });
 
+    // inicializa a grade de blocos
     this.createBricks();
-    }
+}
 
+//cria a matriz de blocos atuais
+//inlcui blocos normais, bonus (vermelhos) e azuos a cada dois niveis
+createBricks() {
+    this.bricks = [];
+    this.totalBricks = 0;
+    let isBlueCreated = false;
+
+    for (let c = 0; c < this.brickColumnCount; c++) {
+        this.bricks[c] = [];
+        for (let r = 0; r < this.brickRowCount; r++) {
+            let brickType = "normal";
+            if (Math.random() < 0.2) {
+                brickType = "bonus";
+            }
+        }
+    }
+}
 
 }

@@ -1,11 +1,15 @@
 class Game {
+     // cria a instância do jogo
     constructor () {
+            // obtem o elemento <canvas> e seu contexto 2d pra desenhar
     this.canvas = document.getElementById("canvas");
     this.ctx = this.canvas.getContext('2d');
 
+        // define a largura e altura do canvas
     this.width = this.canvas.width;
     this.height = this.canvas.height;
 
+          // configuração dos blocos (grade)
     this.brickRowCount = 2;
     this.brickColumnCount = 6;
     this.brickWidth = 75;

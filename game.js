@@ -120,6 +120,16 @@ checkBrickCollisons() {
                this.drawGameOver();
                return;
           }
+
+     //limpa canvas
+     this.ctx.clearReact(0, 0, this.width, this.height);
+     //desenha elementos
+     this.drawBricks();
+     this.drawBall();
+     this.drawPaddle();
+     this.drawScore();
+     //processa colisões
+     this.checkBrickCollisons();
      
 }
 

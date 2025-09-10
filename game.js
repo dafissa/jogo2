@@ -73,6 +73,14 @@ createBricks() {
             if (Math.random() < 0.2) {
                 brickType = "bonus";
             }
+checkBrickCollisons() {
+     for (let c = 0; c < this.brickColumnCount; c++) {
+          for (let r = 0; r < this.brickRowCount; r++) {
+               const b = this.bricks[c][r];
+               if (b.status === 1 &&
+                  this.ballX > b.x && this.ballX < b.x + this.brickWidth &&
+                  this.ballY > b.y && this.ballY < b.y + this.brickHeight) {
+                    
         }
     }
 }

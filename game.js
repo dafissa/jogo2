@@ -71,7 +71,8 @@ createBricks() {
         for (let r = 0; r < this.brickRowCount; r++) {
             let brickType = "normal";
             if (Math.random() < 0.2) {
-                brickType = "bonus";
+                brickType = "bonus"}
+             ...
             }
 checkBrickCollisons() {
      for (let c = 0; c < this.brickColumnCount; c++) {
@@ -80,9 +81,45 @@ checkBrickCollisons() {
                if (b.status === 1 &&
                   this.ballX > b.x && this.ballX < b.x + this.brickWidth &&
                   this.ballY > b.y && this.ballY < b.y + this.brickHeight) {
-                    
-        }
-    }
+                    //inverte direção vetical da bola
+                    this.ballDY = -this.ballDY;
+                    b.status = 0; //marca bloco como destruido
+
+                   //pontua conforme o tipo de bloco
+                    if (b.type === "bonus") this.score += 10;
+                    else if (b.type === "blue") {
+                         this.score += 15;
+                         this.increaseSpeed(1.5); //aumenta velocidade em 50%
+                    } else this.score += 1;
+
+                    this.totalBricks--;
+                    //se todos destruidos, passa de fase
+                    if (this.totalBricks === 0) {
+                         this.level++;
+                         this.createBricks(); //recria blocos
+                         }
+                    }
+               }
+          }
+     }
+
+     /**
+     * aumenta a velocidade da bola pelo fator indicado.
+     * @param {number} factor //multiplicador da velocidade (padrão 1.5)
+     */
+     increaseSpeed(factor = 5) {
+          this.ballDX *= factor;
+          this.ballDY *= factor;
+     }
+
+     //loop principal do jogo: atualiza fisica, desemha tudo e repete
+
+     update() {
+          //se fim de jogo, exibe tela e interrompe
+          if (this.gameOver) {
+               this.drawGameOver();
+               return;
+          }
+     
 }
 
-}

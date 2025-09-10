@@ -130,6 +130,7 @@ checkBrickCollisons() {
      this.drawScore();
      //processa colisões
      this.checkBrickCollisons();
+
      
 }
 
